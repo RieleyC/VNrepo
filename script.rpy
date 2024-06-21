@@ -7,7 +7,7 @@
         global random_button_indexes
         global current_button_index
 
-        ## We're picking the next value in "random_button_indexes" every time this script runs.
+        ## Picking the next value in "random_button_indexes" every time this script runs.
         ## Add 1 to "current_button_index" to pick a value from the list.
         if current_button_index < buttons - 1:
             ## Add 1 to the variable as long as it isn't larger than the list size.
@@ -47,6 +47,8 @@
         global score
         global countdown
 
+
+        ## Resets the variables for the game.
         countdown = 5.0
         time1 = 30.0
         score = 0
@@ -96,6 +98,7 @@ screen countdown_timer:
     ## Timer to subtract 1.0 from the "countdown" variable. Hides this screen after the variable reaches 1.0
     timer 1.0 action If(countdown > 1, SetVariable("countdown", countdown - 1), Hide("countdown_timer")) repeat If(countdown > 1, True, False)
 
+## Start of the game's screen, defines the range of buttons and their grid.
 screen game:
     on "show" action Show("countdown_timer")
     image "bedroom"
